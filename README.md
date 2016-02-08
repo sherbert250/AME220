@@ -1,6 +1,6 @@
 # AME220
 	ASU Spring 2016
-	Course: AME220 Programming for Media Arts
+	Course: AME220 Programming for the Web
 	Professor: Tejaswi Linge Gowda
 
 Arizona State University work for AME220. This work is done by Jerome Trayer.
