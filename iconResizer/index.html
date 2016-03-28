@@ -9,6 +9,11 @@
       width: 300px;
       display: block;
   }
+
+  .img-holder {
+    position: relative;
+    display: inline;
+}
 </style>
 <script src="jquery-1.11.3.js" type="text/javascript"></script>
 
@@ -84,12 +89,14 @@ var selectChanged = function(){
     imageUploaded(i);
     document.getElementById("imagePreview" + i.toString()).style.height = MAX_HEIGHT + "px";
     document.getElementById("imagePreview" + i.toString()).style.width= MAX_WIDTH + "px";
+    document.getElementById("imagePreview" + i.toString() + "-size").innerHTML = iosOptions[i].toString() + "px";
   }
   for(var i = 1; i <= androidOptions.length; i++) {
     MAX_WIDTH = MAX_HEIGHT = parseInt(androidOptions[i]);
     imageUploaded(-i);
     document.getElementById("imagePreview" + -i.toString()).style.height = MAX_HEIGHT + "px";
     document.getElementById("imagePreview" + -i.toString()).style.width= MAX_WIDTH + "px";
+    document.getElementById("imagePreview" + -i.toString() + "-size").innerHTML = androidOptions[i].toString() + "px";
   }
 }
 
@@ -123,27 +130,75 @@ var selectChanged = function(){
     <p>
       android
     </p>
-    <img id="imagePreview-7">
-    <img id="imagePreview-6">
-    <img id="imagePreview-5">
-    <img id="imagePreview-4">
-    <img id="imagePreview-3">
-    <img id="imagePreview-2">
-    <img id="imagePreview-1">
+    <div class="img-holder">
+      <img id="imagePreview-7" border="2">
+      <span id="imagePreview-7-size"></span>
+    </div>
+    <div class="img-holder">
+      <img id="imagePreview-6" border="2">
+      <span id="imagePreview-6-size"></span>
+    </div>
+    <div class="img-holder">
+      <img id="imagePreview-5" border="2">
+      <span id="imagePreview-5-size"></span>
+    </div>
+    <div class="img-holder">
+      <img id="imagePreview-4" border="2">
+      <span id="imagePreview-4-size"></span>
+    </div>
+    <div class="img-holder">
+      <img id="imagePreview-3" border="2">
+      <span id="imagePreview-3-size"></span>
+    </div>
+    <div class="img-holder">
+      <img id="imagePreview-2" border="2">
+      <span id="imagePreview-2-size"></span>
+    </div>
+    <div class="img-holder">
+      <img id="imagePreview-1" border="2">
+      <span id="imagePreview-1-size"></span>
+    </div>
   </div>
-  <div>
+  <div class="img-holder">
     <p>
       ios
     </p>
-    <img id="imagePreview0">
-    <img id="imagePreview1">
-    <img id="imagePreview2">
-    <img id="imagePreview3">
-    <img id="imagePreview4">
-    <img id="imagePreview5">
-    <img id="imagePreview6">
-    <img id="imagePreview7">
-    <img id="imagePreview8">
+    <div class="img-holder">
+      <img id="imagePreview0" border="2">
+      <span id="imagePreview0-size"></span>
+    </div>
+    <div class="img-holder">
+      <img id="imagePreview1" border="2">
+      <span id="imagePreview1-size"></span>
+    </div>
+    <div class="img-holder">
+      <img id="imagePreview2" border="2">
+      <span id="imagePreview2-size"></span>
+    </div>
+    <div class="img-holder">
+      <img id="imagePreview3" border="2">
+      <span id="imagePreview3-size"></span>
+    </div>
+    <div class="img-holder">
+      <img id="imagePreview4" border="2">
+      <span id="imagePreview4-size"></span>
+    </div>
+    <div class="img-holder">
+      <img id="imagePreview5" border="2">
+      <span id="imagePreview5-size"></span>
+    </div>
+    <div class="img-holder">
+      <img id="imagePreview6" border="2">
+      <span id="imagePreview6-size"></span>
+    </div>
+    <div class="img-holder">
+      <img id="imagePreview7" border="2">
+      <span id="imagePreview7-size"></span>
+    </div>
+    <div class="img-holder">
+      <img id="imagePreview8" border="2">
+      <span id="imagePreview8-size"></span>
+    </div>
   </div>
 </body>
 
