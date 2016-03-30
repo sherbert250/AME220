@@ -53,7 +53,7 @@ var startUp = function(initSlide, type){
   animation = type || "fade";
   $(".slide").fadeOut(0);
   $("#slide" + initSlide).fadeIn(0);
-  currentSlide = 1;
+  currentSlide = initSlide;
 
   $("body").keydown(function(event) {
     var keyCode = event.keyCode;
@@ -72,17 +72,19 @@ var goPrev = function(){
   if(next < 1){
     next = 4;
   }
-  console.log('prev: currentSlide = ' + currentSlide + 'next = ' + next);
+  console.log('prev: currentSlide = ' + currentSlide + ' next = ' + next);
   if(animation === "fade"){
     $("#slide" + currentSlide).stop().fadeOut('slow');
     $("#slide" + next).stop().fadeIn('slow');
   }
   else{
-    $("#slide" + currentSlide).stop().slideUp('slow');
-    $("#slide" + next).stop().slideDown('slow');
+    $("#slide" + currentSlide).animate({"marginLeft" : bw}, "slow", function() {
+      $("#slide" + currentSlide).hide();
+      $("#slide" + currentSlide).animate({"marginLeft" : 0}, 0);
+      $("#slide" + next).animate({ "width": "toggle" }, "slow");
+    });
   }
   currentSlide = next;
-  console.log('currentSlide = ' + currentSlide + 'next = ' + next);
 };
 
 var goNext = function(){
@@ -90,7 +92,7 @@ var goNext = function(){
   if(next > 4){
     next = 1;
   }
-  console.log('next: currentSlide = ' + currentSlide + 'next = ' + next);
+  console.log('next: currentSlide = ' + currentSlide + ' next = ' + next);
   var bw = $("body").width() + "px";
 
   if(animation === "fade"){
@@ -98,11 +100,13 @@ var goNext = function(){
     $("#slide" + next).stop().fadeIn('slow');
   }
   else{
-    $("#slide" + currentSlide).stop().slideUp('slow');
-    $("#slide" + next).stop().slideDown('slow');
+    $("#slide" + currentSlide).animate({ "width": "toggle" }, "slow", function() {
+      $("#slide" + next).show();
+      $("#slide" + next).css({"marginLeft" : bw});
+      $("#slide" + next).animate({"marginLeft" : 0}, "slow");
+    });
   }
   currentSlide = next;
-  console.log('currentSlide = ' + currentSlide + 'next = ' + next);
 };
 
 
@@ -110,7 +114,7 @@ var goNext = function(){
 
 </head>
 
-<body onload='startUp(2, "slide")'>
+<body onload='startUp(1, "slide")'>
 <div id='container'>
   <div class='slide' id='slide1'> </div>
   <div class='slide' id='slide2'> </div>
